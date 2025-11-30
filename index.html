@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Muslim Hacker Division - Portfolio yang menggabungkan spiritualitas agama, inovasi teknologi, dan seni ilusi">
+    <meta name="keywords" content="muslim hacker, agama, teknologi, sulap, peperangan, portfolio, keamanan cyber">
+    <meta name="author" content="Muslim Hacker Division">
+    <meta property="og:title" content="Muslim Hacker Division">
+    <meta property="og:description" content="Menggabungkan spiritualitas agama, inovasi teknologi, seni ilusi, dan strategi peperangan dalam harmoni yang sempurna">
+    <meta property="og:image" content="https://iili.io/FDhzvM7.png">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    
     <title>Muslim Hacker Division</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,6 +21,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         :root {
             --primary-color: #00ff41;  /* Hijau neon lebih terang */
             --secondary-color: #00cc33;  /* Hijau neon sedikit lebih gelap */
@@ -21,7 +31,10 @@
             --bg-light: #0a0a0a;  /* Hitam gelap */
             --text-primary: #ffffff;
             --text-secondary: #a0ffa0;  /* Hijau muda untuk teks sekunder */
+            --card-bg: rgba(10, 10, 10, 0.7);
+            --transition-speed: 0.3s;
         }
+
         body {
             font-family: 'Rajdhani', sans-serif;
             background: var(--bg-dark);
@@ -31,11 +44,31 @@
             font-weight: 400;
             letter-spacing: 0.5px;
         }
+
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             letter-spacing: 1px;
         }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
+        }
+
         /* Animated Background */
         .bg-animation {
             position: fixed;
@@ -56,10 +89,57 @@
                         radial-gradient(circle at 40% 20%, rgba(0, 143, 17, 0.1) 0%, transparent 50%);
             animation: rotate 30s linear infinite;
         }
+
         @keyframes rotate {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loading-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .loading-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(0, 255, 65, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .loading-progress {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            animation: loading 2s ease-in-out forwards;
+        }
+        @keyframes loading {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
         /* Navigation */
         nav {
             position: fixed;
@@ -69,7 +149,7 @@
             background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: all var(--transition-speed) ease;
             border-bottom: 1px solid rgba(0, 255, 65, 0.2);
         }
         nav.scrolled {
@@ -112,7 +192,7 @@
         .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all var(--transition-speed) ease;
             position: relative;
             font-size: 16px;
             font-family: 'Orbitron', sans-serif;
@@ -131,7 +211,7 @@
             width: 0;
             height: 2px;
             background: var(--primary-color);
-            transition: width 0.3s ease;
+            transition: width var(--transition-speed) ease;
         }
         .nav-links a:hover::after {
             width: 100%;
@@ -152,7 +232,7 @@
             color: var(--text-primary);
             font-size: 16px;
             outline: none;
-            transition: all 0.3s ease;
+            transition: all var(--transition-speed) ease;
             opacity: 0;
             font-family: 'Rajdhani', sans-serif;
         }
@@ -172,7 +252,7 @@
             color: var(--text-secondary);
             font-size: 18px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all var(--transition-speed) ease;
             position: relative;
             z-index: 10;
         }
@@ -194,7 +274,7 @@
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
-            transition: all 0.3s ease;
+            transition: all var(--transition-speed) ease;
             z-index: 1001;
         }
         .search-results.active {
@@ -247,6 +327,21 @@
             cursor: pointer;
             z-index: 1001;
         }
+        
+        /* Theme Toggle */
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 18px;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            margin-left: 15px;
+        }
+        .theme-toggle:hover {
+            color: var(--primary-color);
+        }
+        
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -260,6 +355,18 @@
             text-align: center;
             max-width: 800px;
             z-index: 1;
+            animation: fadeInUp 1s ease forwards;
+            opacity: 0;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .profile-container {
             margin-bottom: 30px;
@@ -279,6 +386,10 @@
             background: linear-gradient(var(--bg-dark), var(--bg-dark)) padding-box,
                         linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color)) border-box;
             cursor: pointer;
+            transition: transform var(--transition-speed) ease;
+        }
+        .profile-logo:hover {
+            transform: scale(1.05);
         }
         .profile-logo::after {
             content: 'Klik untuk mengubah';
@@ -292,7 +403,7 @@
             border-radius: 5px;
             font-size: 12px;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity var(--transition-speed) ease;
             pointer-events: none;
             white-space: nowrap;
         }
@@ -341,7 +452,7 @@
             font-weight: 700;
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all var(--transition-speed) ease;
             font-size: 18px;
             font-family: 'Orbitron', sans-serif;
             text-transform: uppercase;
@@ -366,6 +477,7 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(0, 255, 65, 0.5);
         }
+        
         /* Skills Section */
         .skills {
             padding: 80px 15px;
@@ -384,11 +496,11 @@
         }
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
         .skill-card {
-            background: rgba(10, 10, 10, 0.7);
+            background: var(--card-bg);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(0, 255, 65, 0.2);
             border-radius: 15px;
@@ -396,7 +508,7 @@
             text-align: justify;
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all var(--transition-speed) ease;
             cursor: pointer;
             height: 100%;
             display: flex;
@@ -411,7 +523,7 @@
             height: 200%;
             background: radial-gradient(circle, rgba(0, 255, 65, 0.1) 0%, transparent 70%);
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity var(--transition-speed) ease;
         }
         .skill-card:hover::before {
             opacity: 1;
@@ -430,17 +542,22 @@
             color: var(--primary-color);
         }
         .skill-card:nth-child(2) .skill-icon {
-            color: var(--secondary-color);
+            color: var(--primary-color);
         }
         .skill-card:nth-child(3) .skill-icon {
-            color: var(--accent-color);
+            color: var(--primary-color);
         }
+        .skill-card:nth-child(4) .skill-icon {
+            color: var(--primary-color);
+        }
+
         .skill-card h3 {
             font-size: 1.8rem;
             margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+
         .skill-card p {
             color: var(--text-secondary);
             line-height: 1.6;
@@ -449,6 +566,77 @@
             letter-spacing: 0.5px;
             flex-grow: 1;
         }
+        
+        /* Timeline Section */
+        .timeline {
+            padding: 80px 15px;
+            background: rgba(5, 5, 5, 0.5);
+            border-top: 1px solid rgba(0, 255, 65, 0.1);
+            border-bottom: 1px solid rgba(0, 255, 65, 0.1);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .timeline-container {
+            position: relative;
+            margin-top: 40px;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: rgba(0, 255, 65, 0.3);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 50%;
+        }
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 40px;
+            text-align: right;
+        }
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 40px;
+        }
+        .timeline-dot {
+            position: absolute;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(0, 255, 65, 0.2);
+        }
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -8px;
+        }
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -8px;
+        }
+        .timeline-date {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 14px;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .timeline-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+        .timeline-description {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
         /* About Section */
         .about {
             padding: 80px 15px;
@@ -470,6 +658,7 @@
             letter-spacing: 0.5px;
             line-height: 1.8;
         }
+        
         /* Contact Section */
         .contact {
             padding: 80px 15px;
@@ -501,7 +690,7 @@
             color: var(--text-primary);
             font-size: 1.5rem;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all var(--transition-speed) ease;
             cursor: pointer;
         }
         .contact-link:hover {
@@ -558,6 +747,37 @@
             display: inline-block;
         }
         
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 255, 65, 0.1);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-speed) ease;
+            z-index: 999;
+        }
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background: var(--primary-color);
+            color: var(--bg-dark);
+            transform: translateY(-5px);
+        }
+        
         /* Floating particles */
         .particle {
             position: fixed;
@@ -570,6 +790,7 @@
             33% { transform: translateY(-100px) translateX(100px); }
             66% { transform: translateY(100px) translateX(-100px); }
         }
+        
         /* Mobile Menu Styles */
         .mobile-menu {
             position: fixed;
@@ -582,7 +803,7 @@
             backdrop-filter: blur(10px);
             z-index: 1002;
             padding: 80px 20px 20px;
-            transition: right 0.3s ease;
+            transition: right var(--transition-speed) ease;
             overflow-y: auto;
             border-left: 1px solid rgba(0, 255, 65, 0.2);
         }
@@ -602,7 +823,7 @@
             display: block;
             padding: 10px 0;
             border-bottom: 1px solid rgba(0, 255, 65, 0.1);
-            transition: color 0.3s ease;
+            transition: color var(--transition-speed) ease;
             font-family: 'Orbitron', sans-serif;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -621,7 +842,7 @@
             z-index: 1001;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: all var(--transition-speed) ease;
             cursor: pointer;
         }
         .overlay.active {
@@ -651,6 +872,196 @@
             border-color: var(--primary-color);
         }
         
+        /* Notification Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(0, 255, 65, 0.9);
+            color: var(--bg-dark);
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 1000;
+            opacity: 0;
+            transition: all var(--transition-speed) ease;
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.3);
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+        
+        /* Light Theme */
+        body.light-theme {
+            --bg-dark: #f5f5f5;
+            --bg-medium: #e0e0e0;
+            --bg-light: #d0d0d0;
+            --text-primary: #121212;
+            --text-secondary: #424242;
+            --card-bg: rgba(255, 255, 255, 0.8);
+        }
+        
+        body.light-theme .bg-animation {
+            background: linear-gradient(45deg, #f5f5f5, #e0e0e0, #d0d0d0);
+        }
+        
+        body.light-theme .bg-animation::before {
+            background: radial-gradient(circle at 20% 50%, rgba(0, 143, 17, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 204, 51, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(0, 255, 65, 0.1) 0%, transparent 50%);
+        }
+        
+        body.light-theme nav {
+            background: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(0, 143, 17, 0.2);
+        }
+        
+        body.light-theme nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.light-theme .logo {
+            background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        body.light-theme .nav-links a {
+            color: var(--text-secondary);
+        }
+        
+        body.light-theme .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        body.light-theme .nav-links a::after {
+            background: var(--accent-color);
+        }
+        
+        body.light-theme .search-results {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(0, 143, 17, 0.3);
+        }
+        
+        body.light-theme .hero-title {
+            background: linear-gradient(45deg, var(--accent-color), var(--secondary-color), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        body.light-theme .cta-button {
+            background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+            color: var(--text-primary);
+        }
+        
+        body.light-theme .skill-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 143, 17, 0.2);
+        }
+        
+        body.light-theme .skill-card:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 15px 30px rgba(0, 143, 17, 0.2);
+        }
+        
+        body.light-theme .about {
+            background: rgba(240, 240, 240, 0.5);
+            border-top: 1px solid rgba(0, 143, 17, 0.1);
+            border-bottom: 1px solid rgba(0, 143, 17, 0.1);
+        }
+        
+        body.light-theme .timeline {
+            background: rgba(240, 240, 240, 0.5);
+            border-top: 1px solid rgba(0, 143, 17, 0.1);
+            border-bottom: 1px solid rgba(0, 143, 17, 0.1);
+        }
+        
+        body.light-theme .timeline-container::before {
+            background: rgba(0, 143, 17, 0.3);
+        }
+        
+        body.light-theme .timeline-dot {
+            background: var(--accent-color);
+            box-shadow: 0 0 0 4px rgba(0, 143, 17, 0.2);
+        }
+        
+        body.light-theme .timeline-date {
+            color: var(--accent-color);
+        }
+        
+        body.light-theme .contact-link {
+            background: rgba(0, 143, 17, 0.1);
+            border: 2px solid rgba(0, 143, 17, 0.3);
+            color: var(--text-primary);
+        }
+        
+        body.light-theme .contact-link:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--text-primary);
+        }
+        
+        body.light-theme footer {
+            background: rgba(255, 255, 255, 0.8);
+            border-top: 1px solid rgba(0, 143, 17, 0.2);
+        }
+        
+        body.light-theme .footer-logo {
+            background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        body.light-theme .back-to-top {
+            background: rgba(0, 143, 17, 0.1);
+            border: 2px solid rgba(0, 143, 17, 0.3);
+            color: var(--accent-color);
+        }
+        
+        body.light-theme .back-to-top:hover {
+            background: var(--accent-color);
+            color: var(--text-primary);
+        }
+        
+        body.light-theme .mobile-menu {
+            background: rgba(255, 255, 255, 0.95);
+            border-left: 1px solid rgba(0, 143, 17, 0.2);
+        }
+        
+        body.light-theme .mobile-menu-links a {
+            border-bottom: 1px solid rgba(0, 143, 17, 0.1);
+        }
+        
+        body.light-theme .mobile-menu-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        body.light-theme .mobile-search {
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(0, 143, 17, 0.2);
+        }
+        
+        body.light-theme .mobile-search-input {
+            background: rgba(240, 240, 240, 0.7);
+            border: 1px solid rgba(0, 143, 17, 0.3);
+            color: var(--text-primary);
+        }
+        
+        body.light-theme .mobile-search-input:focus {
+            border-color: var(--accent-color);
+        }
+        
+        body.light-theme .toast {
+            background: rgba(0, 143, 17, 0.9);
+            color: var(--text-primary);
+        }
+        
         /* Responsive */
         @media (max-width: 992px) {
             .nav-center {
@@ -659,6 +1070,18 @@
             .skills-grid {
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
                 gap: 20px;
+            }
+            .timeline-container::before {
+                left: 30px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+            .timeline-dot {
+                left: 22px !important;
             }
         }
         
@@ -717,6 +1140,13 @@
             }
             .footer-text {
                 font-size: 14px;
+            }
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+                bottom: 20px;
+                right: 20px;
             }
         }
         
@@ -777,16 +1207,64 @@
         /* Large screens */
         @media (min-width: 1200px) {
             .skills-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
             .skill-card {
                 max-width: 350px;
                 margin: 0 auto;
             }
         }
+        
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Focus styles for accessibility */
+        a:focus, button:focus, input:focus, textarea:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+        
+        /* Skip to content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary-color);
+            color: var(--bg-dark);
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 0 0 4px 0;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-text">>_MHD:~$ Loading...</div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+    
+    <!-- Skip to content link for accessibility -->
+    <a href="#home" class="skip-link">Skip to content</a>
+    
     <div class="bg-animation"></div>
     
     <!-- Mobile Menu -->
@@ -794,6 +1272,7 @@
         <ul class="mobile-menu-links">
             <li><a href="#home" onclick="closeMobileMenu()">Beranda</a></li>
             <li><a href="#skills" onclick="closeMobileMenu()">Keahlian</a></li>
+            <li><a href="#timeline" onclick="closeMobileMenu()">Perjalanan</a></li>
             <li><a href="#about" onclick="closeMobileMenu()">Tentang</a></li>
             <li><a href="#contact" onclick="closeMobileMenu()">Kontak</a></li>
         </ul>
@@ -801,27 +1280,33 @@
     <div class="overlay" id="overlay" onclick="closeMobileMenu()"></div>
     
     <!-- Navigation -->
-    <nav id="navbar">
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="logo">>_MHD:~$</div>
             <div class="nav-center">
                 <ul class="nav-links">
                     <li><a href="#home">Beranda</a></li>
                     <li><a href="#skills">Keahlian</a></li>
+                    <li><a href="#timeline">Perjalanan</a></li>
                     <li><a href="#about">Tentang</a></li>
                     <li><a href="#contact">Kontak</a></li>
                 </ul>
                 
                 <!-- Search Bar -->
                 <div class="search-container">
-                    <input type="text" class="search-input" placeholder="Cari konten..." id="searchInput">
-                    <button class="search-btn" id="searchBtn">
+                    <input type="text" class="search-input" placeholder="Cari konten..." id="searchInput" aria-label="Search">
+                    <button class="search-btn" id="searchBtn" aria-label="Toggle search">
                         <i class="fas fa-search"></i>
                     </button>
-                    <div class="search-results" id="searchResults"></div>
+                    <div class="search-results" id="searchResults" role="region" aria-label="Search results"></div>
                 </div>
+                
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -829,17 +1314,17 @@
     
     <!-- Mobile Search -->
     <div class="mobile-search">
-        <input type="text" class="mobile-search-input" placeholder="Cari konten..." id="mobileSearchInput">
+        <input type="text" class="mobile-search-input" placeholder="Cari konten..." id="mobileSearchInput" aria-label="Mobile search">
     </div>
     
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="profile-container">
-                <img src="https://iili.io/FDhzvM7.png" alt="Muslim Hacker Division Logo" class="profile-logo" id="profileImage">
+                <img src="img/mhd.png" alt="Muslim Hacker Division Logo" class="profile-logo" id="profileImage" loading="lazy">
             </div>
-            <h3 class="hero-title">Muslim Hacker Division</h3>
-            <p>Menggabungkan spiritualitas agama, inovasi teknologi, dan seni ilusi dalam harmoni yang begitu sempurna, mempunyai tiga keahlian yang jarang dimiliki oleh kebanyakan orang</p>
+            <h1 class="hero-title">Muslim Hacker Division</h1>
+            <p>Menggabungkan spiritualitas agama, inovasi teknologi, seni ilusi, dan informasi peperangan dalam harmoni yang begitu sempurna, mempunyai empat keahlian yang jarang dimiliki oleh kebanyakan orang</p>
             <a href="#skills" class="cta-button">Jelajahi Keahlian Saya</a>
         </div>
     </section>
@@ -849,19 +1334,55 @@
         <h2 class="section-title">Keahlian Saya</h2>
         <div class="skills-grid">
             <div class="skill-card" data-skill="agama" data-title="Ilmu Agama" data-description="Mempelajari dan mendalami ajaran agama dengan pemahaman salaf ash-shalih. Mengamalkan ajaran tauhid dengan semurni-murninya dengan pendekatan modern yang relevan untuk kehidupan kontemporer saat ini.">
-                <i class="fas fa-mosque skill-icon"></i>
+                <i class="fas fa-mosque skill-icon" aria-hidden="true"></i>
                 <h3>Ilmu Agama</h3>
                 <p>Mempelajari dan mendalami ajaran agama dengan pemahaman salaf ash-shalih. Mengamalkan ajaran tauhid dengan semurni-murninya dengan pendekatan modern yang relevan untuk kehidupan kontemporer saat ini.</p>
             </div>
             <div class="skill-card" data-skill="teknologi" data-title="Ilmu Teknologi" data-description="Menguasai berbagai aspek teknologi mulai dari pemrograman, UI/UX, Peretasan dan keamanan cyber dan hingga pengembangan sistem aplikasi. Selalu mengikuti perkembangan teknologi terkini untuk solusi inovatif.">
-                <i class="fas fa-microchip skill-icon"></i>
+                <i class="fas fa-microchip skill-icon" aria-hidden="true"></i>
                 <h3>Ilmu Teknologi</h3>
                 <p>Menguasai berbagai aspek teknologi mulai dari pemrograman, UI/UX, Peretasan dan keamanan cyber hingga pengembangan sistem aplikasi. Selalu mengikuti perkembangan teknologi terkini untuk solusi inovatif.</p>
             </div>
             <div class="skill-card" data-skill="sulap" data-title="Ilmu Sulap" data-description="Seni ilusi dan sulap, saya menggabungkan sulap yang memiliki keterampilan kecepatan, keajaiban dan hiburan. Menciptakan pengalaman ajaib yang memukau dan menginspirasi audiens dari berbagai kalangan.">
-                <i class="fas fa-hat-wizard skill-icon"></i>
+                <i class="fas fa-hat-wizard skill-icon" aria-hidden="true"></i>
                 <h3>Ilmu Sulap</h3>
                 <p>Seni ilusi dan sulap, saya menggabungkan sulap yang memiliki keterampilan kecepatan, keajaiban dan hiburan. Menciptakan pengalaman ajaib yang memukau dan menginspirasi audiens dari berbagai kalangan.</p>
+            </div>
+            <div class="skill-card" data-skill="peperangan" data-title="Strategi Peperangan" data-description="Menelusuri dinamika peperangan kontemporer melalui data intelijen real‑time, analisis kecerdasan buatan, perang siber, taktik drone, dari beberapa negara yang sedang berkonflik..">
+                <i class="fas fa-shield-alt skill-icon" aria-hidden="true"></i>
+                <h3>Info Peperangan</h3>
+                <p>Menelusuri dinamika peperangan kontemporer melalui data intelijen real‑time, analisis kecerdasan buatan, perang siber, taktik drone, dari beberapa negara yang sedang berkonflik.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Timeline Section -->
+    <section class="timeline" id="timeline">
+        <h2 class="section-title">Perjalanan Saya</h2>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2018</div>
+                <h3 class="timeline-title">Memulai Perjalanan</h3>
+                <p class="timeline-description">Memulai pendalaman ilmu agama dan teknologi secara serius.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2020</div>
+                <h3 class="timeline-title">Hacker</h3>
+                <p class="timeline-description">Membentuk komunitas Hacker sebagai wadah untuk menghancurkan kemaksiatan.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2023</div>
+                <h3 class="timeline-title">Informasi</h3>
+                <p class="timeline-description">Memulai mendalami informasi peperangan dan taktik militer.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2025</div>
+                <h3 class="timeline-title">Sulap</h3>
+                <p class="timeline-description">Mulai mendalami seni sulap dan ilusi sebagai bentuk ekspresi kreativitas.</p>
             </div>
         </div>
     </section>
@@ -870,7 +1391,7 @@
     <section class="about" id="about">
         <div class="about-content">
             <h2 class="section-title">Tentang Saya</h2>
-            <p>Saya Adalah individu yang bekerja sebagai seorang pedagang dan pemulung, dengan skill dari tiga ilmu yang berbeda: spiritualitas melalui ilmu agama, inovasi melalui teknologi, dan kreativitas melalui seni sulap. Ketiga keahlian ini membentuk perspektif holistik dalam melihat dan memecahkan masalah. Dengan latar belakang yang beragam ini, saya berusaha menciptakan sinergi antara agama dan modernitas, logika dan imajinasi tanpa mengubah sedikitpun dari ilmu agama tersebut, untuk menghasilkan solusi yang tidak hanya inovatif tetapi juga bermakna.</p>
+            <p>Saya Adalah individu yang bekerja sebagai seorang pedagang dan pemulung, dengan skill dari empat ilmu yang berbeda: spiritualitas melalui ilmu agama, inovasi melalui teknologi, kreativitas melalui seni sulap, dan strategi melalui ilmu peperangan. Keempat keahlian ini membentuk perspektif holistik dalam melihat dan memecahkan masalah. Dengan latar belakang yang beragam ini, saya berusaha menciptakan sinergi antara agama dan modernitas, logika dan imajinasi, pertahanan dan penyerangan, tanpa mengubah sedikitpun dari ilmu agama tersebut, untuk menghasilkan solusi yang tidak hanya inovatif tetapi juga bermakna.</p>
         </div>
     </section>
     
@@ -879,16 +1400,16 @@
         <h2 class="section-title">Hubungi Saya</h2>
         <p> Anda bisa menemukan saya melalui link dibawah ini </p>
         <div class="contact-links">
-            <a href="muslim_hacker_division@keemail.me" class="contact-link" title="Email">
+            <a href="mailto:muslim_hacker_division@keemail.me" class="contact-link" title="Email" aria-label="Email">
                 <i class="fas fa-envelope"></i>
             </a>
-            <a href="https://smp17.simplex.im/i#1IPIXmsRUudH-fjWP8Ttk0Vt_L0RofWV/13N0Isnv0BHKRCiBRfPFBUQdDZUwXPVr-S0z13eI7Zw" target="_blank" class="contact-link" title="Linux">
+            <a href="https://smp17.simplex.im/i#1IPIXmsRUudH-fjWP8Ttk0Vt_L0RofWV/13N0Isnv0BHKRCiBRfPFBUQdDZUwXPVr-S0z13eI7Zw" target="_blank" class="contact-link" title="Linux" aria-label="Linux">
                 <i class="fab fa-linux"></i>
             </a>
-            <a href="https://wa.me/ais/1212194433420200?s=5" target="_blank" class="contact-link" title="GitHub">
+            <a href="https://wa.me/ais/1212194433420200?s=5" target="_blank" class="contact-link" title="WhatsApp" aria-label="WhatsApp">
                 <i class="fab fa-whatsapp"></i>
             </a>
-            <a href="https://www.facebook.com/profile.php?id=61578863533291" target="_blank" class="contact-link" title="Facebook">
+            <a href="https://www.facebook.com/profile.php?id=61578863533291" target="_blank" class="contact-link" title="Facebook" aria-label="Facebook">
                 <i class="fab fa-facebook"></i>
             </a>
         </div>
@@ -905,9 +1426,64 @@
         </div>
     </footer>
     
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+    
     <script>
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Loading screen
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loadingScreen').classList.add('hidden');
+            }, 1500);
+        });
+        
+        // Theme toggle functionality - Dark mode as default
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or default to dark mode
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        if (currentTheme === 'light') {
+            body.classList.add('light-theme');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+        
+        themeToggle.addEventListener('click', function() {
+            body.classList.toggle('light-theme');
+            
+            if (body.classList.contains('light-theme')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'light');
+                showToast('Mode terang diaktifkan');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'dark');
+                showToast('Mode gelap diaktifkan');
+            }
+        });
+        
+        // Toast notification function
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
         
         // Profile image change functionality
         document.getElementById('profileImage').addEventListener('click', function() {
@@ -917,43 +1493,9 @@
                 try {
                     new URL(newImageUrl);
                     this.src = newImageUrl;
-                    
-                    // Show success message
-                    const successMsg = document.createElement('div');
-                    successMsg.textContent = 'Gambar profil berhasil diperbarui!';
-                    successMsg.style.cssText = `
-                        position: fixed;
-                        bottom: 20px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        background: rgba(0, 255, 65, 0.8);
-                        color: var(--bg-dark);
-                        padding: 10px 20px;
-                        border-radius: 5px;
-                        font-weight: bold;
-                        z-index: 1000;
-                        animation: fadeInOut 3s forwards;
-                    `;
-                    
-                    // Add animation for the message
-                    const style = document.createElement('style');
-                    style.textContent = `
-                        @keyframes fadeInOut {
-                            0% { opacity: 0; }
-                            20% { opacity: 1; }
-                            80% { opacity: 1; }
-                            100% { opacity: 0; }
-                        }
-                    `;
-                    document.head.appendChild(style);
-                    document.body.appendChild(successMsg);
-                    
-                    // Remove message after animation
-                    setTimeout(() => {
-                        successMsg.remove();
-                    }, 3000);
+                    showToast('Gambar profil berhasil diperbarui!');
                 } catch (e) {
-                    alert('URL tidak valid. Silakan masukkan URL yang benar.');
+                    showToast('URL tidak valid. Silakan masukkan URL yang benar.');
                 }
             }
         });
@@ -991,14 +1533,27 @@
         });
         
         // Search functionality for desktop
-        searchInput.addEventListener('input', function() {
+        searchInput.addEventListener('input', debounce(function() {
             performSearch(this.value);
-        });
+        }, 300));
         
         // Search functionality for mobile
-        mobileSearchInput.addEventListener('input', function() {
+        mobileSearchInput.addEventListener('input', debounce(function() {
             performSearch(this.value);
-        });
+        }, 300));
+        
+        // Debounce function to limit how often a function can be called
+        function debounce(func, wait) {
+            let timeout;
+            return function() {
+                const context = this;
+                const args = arguments;
+                clearTimeout(timeout);
+                timeout = setTimeout(() => {
+                    func.apply(context, args);
+                }, wait);
+            };
+        }
         
         function performSearch(query) {
             query = query.toLowerCase().trim();
@@ -1007,6 +1562,7 @@
                 // Get all searchable content
                 const skillCards = document.querySelectorAll('.skill-card');
                 const aboutContent = document.querySelector('.about-content');
+                const timelineItems = document.querySelectorAll('.timeline-item');
                 const results = [];
                 
                 // Search in skill cards
@@ -1022,6 +1578,21 @@
                             title: title,
                             description: description,
                             element: card
+                        });
+                    }
+                });
+                
+                // Search in timeline items
+                timelineItems.forEach(item => {
+                    const title = item.querySelector('.timeline-title').textContent;
+                    const description = item.querySelector('.timeline-description').textContent;
+                    
+                    if (title.toLowerCase().includes(query) || 
+                        description.toLowerCase().includes(query)) {
+                        results.push({
+                            title: title,
+                            description: description,
+                            element: item
                         });
                     }
                 });
@@ -1067,11 +1638,15 @@
                         // Highlight element temporarily
                         result.element.style.transition = 'all 0.5s ease';
                         result.element.style.boxShadow = '0 0 20px rgba(0, 255, 65, 0.7)';
-                        result.element.style.borderColor = 'var(--primary-color)';
+                        if (result.element.style.borderColor !== undefined) {
+                            result.element.style.borderColor = 'var(--primary-color)';
+                        }
                         
                         setTimeout(() => {
                             result.element.style.boxShadow = '';
-                            result.element.style.borderColor = '';
+                            if (result.element.style.borderColor !== undefined) {
+                                result.element.style.borderColor = '';
+                            }
                         }, 2000);
                         
                         // Close search
@@ -1125,6 +1700,22 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
+            
+            // Back to top button visibility
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
         
         // Smooth scrolling for navigation links
@@ -1167,6 +1758,10 @@
                 sulap: {
                     title: 'Ilmu Sulap',
                     description: 'Menguasai berbagai teknik sulap dari close-up magic hingga street magic, dengan fokus pada storytelling dan audience engagement. Kami menggabungkan antara teknik sulap Ilusionis dengan teknik pick-pocket yang sangat mengagumkan mata penonton.'
+                },
+                peperangan: {
+                    title: 'Strategi Peperangan',
+                    description: 'Mempelajari strategi perang dari Sun Tzu hingga taktik modern. Memahami prinsip-prinsip seperti "kenali musuhmu, kenali dirimu", "serang di mana musuh tidak siap", dan "kekuatan terbesar adalah tidak bertarung sama sekali". Menerapkan prinsip-prinsip ini dalam konteks keamanan siber, negosiasi, dan pengambilan keputusan strategis dalam kehidupan sehari-hari.'
                 }
             };
             const skillDetail = details[skill];
@@ -1281,6 +1876,64 @@
                 card.style.transform = 'translateY(30px)';
                 card.style.transition = 'all 0.6s ease';
                 observer.observe(card);
+            }
+        });
+        
+        // Observe timeline items
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        timelineItems.forEach(item => {
+            if (item) {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = 'all 0.6s ease';
+                observer.observe(item);
+            }
+        });
+        
+        // Lazy loading for images
+        if ('IntersectionObserver' in window) {
+            const imgOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px 200px 0px'
+            };
+            
+            const imgObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.remove('lazy');
+                        imgObserver.unobserve(img);
+                    }
+                });
+            }, imgOptions);
+            
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                imgObserver.observe(img);
+            });
+        }
+        
+        // Add keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            // Escape key to close modals or menus
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+                
+                // Close any open modals
+                const modals = document.querySelectorAll('div[style*="position: fixed"]');
+                modals.forEach(modal => {
+                    if (modal.style.zIndex === '2000') {
+                        modal.remove();
+                    }
+                });
+                
+                // Close search if active
+                if (searchActive) {
+                    searchActive = false;
+                    searchInput.classList.remove('active');
+                    searchResults.classList.remove('active');
+                    searchInput.value = '';
+                }
             }
         });
     </script>
