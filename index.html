@@ -8,7 +8,7 @@
     <meta name="author" content="Muslim Hacker Division">
     <meta property="og:title" content="Muslim Hacker Division">
     <meta property="og:description" content="Menggabungkan spiritualitas agama, inovasi teknologi, seni ilusi, dan strategi peperangan dalam harmoni yang sempurna">
-    <meta property="og:image" content="img/mhd.png">
+    <meta property="og:image" content="https://iili.io/FDhzvM7.png">
     <meta property="og:url" content="">
     <meta property="og:type" content="website">
     
@@ -1076,12 +1076,17 @@
             }
             .timeline-item {
                 width: 100%;
+                left: 0 !important; /* FIX UTAMA: Memastikan item selalu mulai dari kiri */
                 padding-left: 70px !important;
                 padding-right: 0 !important;
                 text-align: left !important;
             }
+            .timeline-item:nth-child(even) {
+                 left: 0 !important; /* Menimpa left: 50% dari aturan default */
+            }
             .timeline-dot {
                 left: 22px !important;
+                right: auto !important; /* Menimpa right: -8px dari aturan default */
             }
         }
         
@@ -1247,10 +1252,6 @@
             z-index: 100;
             transition: top 0.3s;
         }
-        
-        .skip-link:focus {
-            top: 0;
-        }
     </style>
 </head>
 <body>
@@ -1321,7 +1322,7 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="profile-container">
-                <img src="img/mhd.png" alt="Muslim Hacker Division Logo" class="profile-logo" id="profileImage" loading="lazy">
+                <img src="https://iili.io/FDhzvM7.png" alt="Muslim Hacker Division Logo" class="profile-logo" id="profileImage" loading="lazy">
             </div>
             <h1 class="hero-title">Muslim Hacker Division</h1>
             <p>Menggabungkan spiritualitas agama, inovasi teknologi, seni ilusi, dan informasi peperangan dalam harmoni yang begitu sempurna, mempunyai empat keahlian yang jarang dimiliki oleh kebanyakan orang</p>
