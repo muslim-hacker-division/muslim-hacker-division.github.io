@@ -373,24 +373,37 @@
             position: relative;
             display: inline-block;
         }
-        .profile-logo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            display: block;
-            position: relative;
-            z-index: 2;
-            animation: profileGlow 3s ease-in-out infinite alternate, pulse 2s infinite;
+        img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.profile-logo {
+    width: clamp(100px, 20vw, 180px);
+    height: clamp(100px, 20vw, 180px);
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    position: relative;
+    z-index: 2;
+
+    animation: profileGlow 3s ease-in-out infinite alternate, pulse 2s infinite;
+
             border: 1px solid transparent;
             background: linear-gradient(var(--bg-dark), var(--bg-dark)) padding-box,
-                        linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color)) border-box;
-            cursor: pointer;
-            transition: transform var(--transition-speed) ease;
-        }
+                linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color)) border-box;
+
+                cursor: pointer;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
         .profile-logo:hover {
-            transform: scale(1.05);
-        }
+            transform: scale(1.08);
+            box-shadow: 0 0 25px rgba(0, 255, 65, 0.7);
+    }
         .profile-logo::after {
             content: 'Klik untuk mengubah';
             position: absolute;
@@ -679,6 +692,8 @@
             flex-wrap: wrap;
         }
         .contact-link {
+            position: relative;
+            overflow: hidden;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -700,6 +715,19 @@
             transform: translateY(-5px) rotate(360deg);
             box-shadow: 0 10px 30px rgba(0, 255, 65, 0.5);
         }
+.contact-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,255,65,0.4), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.contact-link:hover::before {
+    opacity: 1;
+}
         
         /* Footer Section */
         footer {
@@ -1322,8 +1350,18 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="profile-container">
-                <img src="https://iili.io/FDhzvM7.png" alt="Muslim Hacker Division Logo" class="profile-logo" id="profileImage" loading="lazy">
-            </div>
+    <picture>
+        <source srcset="https://iili.io/FDhzvM7.png" type="image/png">
+        <img 
+            src="https://iili.io/FDhzvM7.png" 
+            alt="Muslim Hacker Division Logo" 
+            class="profile-logo" 
+            id="profileImage"
+            loading="lazy"
+            decoding="async"
+        >
+        </picture>
+    </div>
             <h1 class="hero-title">Muslim Hacker Division</h1>
             <p>Menggabungkan spiritualitas agama, inovasi teknologi, seni ilusi, dan informasi peperangan dalam harmoni yang begitu sempurna, mempunyai empat keahlian yang jarang dimiliki oleh kebanyakan orang</p>
             <a href="#skills" class="cta-button">Jelajahi Keahlian Saya</a>
@@ -1398,23 +1436,43 @@
     
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <h2 class="section-title">Hubungi Saya</h2>
-        <p> Anda bisa menemukan saya melalui link dibawah ini </p>
-        <div class="contact-links">
-            <a href="mailto:muslim_hacker_division@keemail.me" class="contact-link" title="Email" aria-label="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://rahasia-hewan.blogspot.com/" target="_blank" class="contact-link" title="Blogger" aria-label="Blogger">
-                <i class="fa-brands fa-blogger-b"></i>
-            </a>
-            <a href="https://wa.me/ais/1212194433420200?s=5" target="_blank" class="contact-link" title="WhatsApp" aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://www.youtube.com/@penaalquran2" target="_blank" class="contact-link" title="Youtube" aria-label="Youtube">
-                <i class="fa-brands fa-youtube"></i>
-            </a>
-        </div>
-    </section>
+    <h2 class="section-title">Hubungi Saya</h2>
+    <p> Anda bisa menemukan saya melalui link dibawah ini </p>
+
+    <div class="contact-links">
+
+        <!-- Email -->
+        <a href="mailto:muslim_hacker_division@keemail.me" class="contact-link">
+            <i class="fas fa-envelope"></i>
+        </a>
+
+        <!-- Blog -->
+        <a href="https://rahasia-hewan.blogspot.com/" target="_blank" class="contact-link">
+            <i class="fa-brands fa-blogger-b"></i>
+        </a>
+
+        <!-- YouTube -->
+        <a href="https://www.youtube.com/@penaalquran2" target="_blank" class="contact-link">
+            <i class="fa-brands fa-youtube"></i>
+        </a>
+
+        <!-- Facebook -->
+        <a href="https://facebook.com/RuntimeIman" target="_blank" class="contact-link">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <!-- Telegram -->
+        <a href="https://t.me/autoposting_quran" target="_blank" class="contact-link">
+            <i class="fab fa-telegram-plane"></i>
+        </a>
+
+        <!-- Mastodon -->
+        <a href="https://mastodon.social/@poster_pengingat" target="_blank" class="contact-link">
+            <i class="fab fa-mastodon"></i>
+        </a>
+
+    </div>
+</section>
     
     <!-- Footer Section -->
     <footer>
@@ -1937,6 +1995,11 @@
                 }
             }
         });
+        document.querySelectorAll('.contact-link').forEach(link => {
+    link.addEventListener('click', () => {
+        showToast('Membuka sosial media...');
+    });
+});
     </script>
 </body>
 </html>
