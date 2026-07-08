@@ -85,6 +85,24 @@ body {
     cursor: pointer;
 }
 
+/* animasi kedip aktif */
+.cursor-blink {
+    animation: blink 1s infinite;
+    display: inline-block; 
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Memperbaiki logo  */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    white-space: nowrap; 
+}
+
 /* --- HERO SECTION --- */
 .hero-section {
     min-height: 100vh;
@@ -452,6 +470,23 @@ body {
 .toast.show {
     transform: translateY(0);
     opacity: 1;
+}
+
+/* Memperbaiki */
+@media screen and (max-width: 480px) {
+    .hacker-identity-box {
+        padding: 1.5rem; 
+        margin: 1rem auto;
+    }
+
+    .hacker-identity-box h3 {
+        font-size: 1.2rem; 
+        word-break: break-all; 
+    }
+    
+    .hacker-icon-large {
+        font-size: 3.5rem; 
+    }
 }
 
 /* --- RESPONSIVE LAYOUT (HP) --- */
