@@ -356,6 +356,18 @@ body {
     margin-top: 0.5rem;
 }
 
+.project-card {
+    background: #1a1a1a;
+    border: 1px solid #00ff66; /* Warna khas MHD */
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    box-shadow: 0 0 15px #00ff66;
+}
+
 /* --- TIMELINE (PERJALANAN) --- */
 .timeline {
     position: relative;
