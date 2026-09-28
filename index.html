@@ -19,9 +19,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/modern-bg.css">
     <link rel="apple-touch-icon" href="logo_update.png">
 </head>
-<body>
+<body class="bg-overlay">
+
+    <div class="glow" aria-hidden="true"></div>
 
     <nav class="navbar">
         <div class="nav-container">
@@ -173,6 +176,16 @@
     </footer>
 
     <div class="toast" id="toast">Notifikasi</div>
+
+    <script>
+      // fallback untuk backdrop-filter
+      (function(){
+        var supports = window.CSS && (CSS.supports && (CSS.supports("backdrop-filter","blur(1px)") || CSS.supports("-webkit-backdrop-filter","blur(1px)")));
+        if(!supports){
+          document.documentElement.classList.add('fallback-no-backdrop');
+        }
+      })();
+    </script>
 
     <script src="script.js"></script>
 </body>
