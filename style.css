@@ -190,6 +190,7 @@ body {
     align-items: center;
     justify-content: center;
     padding-top: 80px;
+    padding-bottom: 40px;
     background: linear-gradient(135deg, rgba(0, 255, 102, 0.03) 0%, rgba(0, 217, 255, 0.03) 100%);
     position: relative;
     overflow: hidden;
@@ -395,6 +396,7 @@ body {
     gap: 1.5rem;
     margin-top: 2rem;
     animation: fadeInUp 1s ease-out 0.6s both;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -571,6 +573,8 @@ body {
     background: linear-gradient(135deg, rgba(10, 10, 20, 0.8) 0%, rgba(15, 15, 25, 0.8) 100%) !important;
     border: 2px solid var(--accent-color) !important;
     box-shadow: 0 0 20px rgba(0, 255, 102, 0.1) !important;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card:hover {
@@ -800,6 +804,34 @@ body {
     .hacker-icon-large {
         font-size: 3.5rem;
     }
+
+    .hero-section {
+        min-height: auto;
+        padding-bottom: 60px;
+    }
+
+    .glitch-text {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.8rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .project-card {
+        min-height: 100%;
+    }
 }
 
 /* --- RESPONSIVE LAYOUT (HP) --- */
@@ -823,7 +855,7 @@ body {
     .nav-menu.active { left: 0; }
     .hero-buttons { 
         flex-direction: column; 
-        width: 100%; 
+        width: 100%;
     }
     .timeline::after { left: 31px; }
     .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
@@ -831,4 +863,12 @@ body {
     .right { left: 0; }
     .glitch-text { font-size: 2.2rem; }
     .section-title { font-size: 1.8rem; }
+    
+    .hero-section {
+        padding-bottom: 60px;
+    }
+    
+    .section {
+        padding: 4rem 1.5rem;
+    }
 }
