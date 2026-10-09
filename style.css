@@ -643,14 +643,15 @@ body {
     color: var(--accent-color);
     text-decoration: none;
     font-weight: bold;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     margin-top: 1rem;
     transition: all 0.3s ease;
     text-shadow: 0 0 5px rgba(0, 255, 102, 0.3);
-    position: relative;
-    z-index: 5;
     cursor: pointer;
     padding: 0.5rem 0;
+    position: relative;
 }
 
 .btn-link:hover {
